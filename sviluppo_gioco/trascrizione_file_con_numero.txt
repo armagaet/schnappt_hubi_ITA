@@ -1,0 +1,111 @@
+--> fatta con https://voiser.net/account/speech-to-text/
+--> questi sono gli audio dei bambini del tizio in tedesco che ha sviluppato l'algoritmo su github
+--> https://github.com/adaumann/schnappt_hubi
+
+--> l'ordine della concatenazioen degli audio è:
+#ffmpeg -f concat -safe 0 -i audio_concat.txt -c copy concat_audio_x_trascrizione.mp4
+file '3.m4a'
+file '4.m4a'
+file '5.m4a'
+file '6.m4a'
+file '7.m4a'
+file '8.m4a'
+file '9.m4a'
+file 'alreadyanimalhint.m4a'
+file 'closemagicwall.m4a'
+file 'failmove1.m4a'
+file 'fullwall.m4a'
+file 'hubiawake.m4a'
+file 'hubicatch.m4a'
+file 'hubimove.m4a'
+file 'hubiseen.m4a'
+file 'magicnext.m4a'
+file 'openmagicwall.m4a'
+file 'selectlevel.m4a'
+file 'selectplayer.m4a'
+file 'stillclosedmagicdoors.m4a'
+file 'turn.m4a'
+file 'visithubi.m4a'
+file 'win.m4a'
+
+
+1.m4a
+Eine Stunde müssen wir danach.
+Dobbiamo aspettare un'ora dopo.
+
+2.m4a
+3 Stunden, bis sie wieder nach.
+3 ore al loro ritorno.
+
+
+E poi:
+Forse ore a mezzanotte,
+4 ore a mezzanotte,
+5 ore a mezzanotte,
+6 ore a mezzanotte,
+7 ore a mezzanotte,
+8 ore a mezzanotte,
+9 ore a mezzanotte.
+
+
+alreadyanimalhint.m4a
+Katja Dovrebbe avere un figlio.
+?????
+
+
+--> File audio rimasti intradotti??
+file 'hubiawake.m4a'
+file 'hubicatch.m4a'
+file 'hubimove.m4a'
+file 'hubiseen.m4a'
+file 'magicnext.m4a'
+
+
+
+closemagicwall.m4a
+Un muro magico bloccato,
+
+failmove1.m4a
+comando sbagliato,
+
+fullwall.m4a
+muro
+
+hubiawake.m4a
+huuuu
+
+hubicatch.m4a
+mi aspetto che tu lo riprenda hui,
+
+hubimove.m4a ????
+non puoi portarmi molto oltre,
+
+hubiseen.m4a ???
+
+
+ho il comando magico nel lede.
+
+
+
+E poi seconda tranche del file concatenato:
+--> File audio rimasti intradotti??
+file 'selectlevel.m4a'
+file 'selectplayer.m4a'
+file 'win.m4a'
+
+openmagicwall.m4a
+Apri il muro magico,
+
+
+???????????????
+sì, ricorda che come dovrebbe essere la birra, lei ha la birra per essere la prima foto che vuoi con la birra, 
+
+
+file 'stillclosedmagicdoors.m4a'
+ci sono ancora porte magiche,
+
+file 'turn.m4a'
+è il tuo turno Hui,
+
+file 'visithubi.m4a'
+stai facendo un buon lavoro nella tua stanza?

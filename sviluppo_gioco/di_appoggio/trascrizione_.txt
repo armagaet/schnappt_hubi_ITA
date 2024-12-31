@@ -1,0 +1,116 @@
+trascrizione del file audio
+giocata_1_fino_a_porta_magica_toporosso_coniglioblu
+tramite veed
+Ad un certo punto temo che le batterie si siano sganciate e il gioco ha ripreso dall'inizio.
+
+
+Willkommen. Aus. Prima.
+Jetzt sind wir komplett.
+Welcher Spieler möchte beginnen?
+Bitte drücke du deine Spielertaste.
+Wunderbar.
+Rote Maus, du darfst beginnen.
+Keine Sorge, die Aufgabe wird nicht schwer werden.
+Ihr spielt das leichte Spiel.
+Los geht's.
+Schuhu schuhu.
+Hu hu.
+Rote Maus, wohin möchtest du ziehen?
+Drücke eine Aktionstaste.
+Mauseloch, du kannst durch.
+Huhu.
+Blauer Hase, wohin möchtest du ziehen?
+Mauseloch, du kannst nicht durch.
+Trippeltrappel, sei gegrüßt.
+Rote Maus, wohin willst du gehen?
+Du bleibst bei mir.
+Ich helfe gern.
+Ihr findet die Zaubertüre zwischen einer weißen Fledermaus und einer schwarzen Fledermaus.
+Blauer Hase, wohin möchtest du ziehen?
+Du bleibst bei mir.
+Du willst noch mehr wissen?
+Sucht ist die Zaubertüre, die ihr schon kennt.
+Ihr findet die Zaubertüre zwischen einer weißen Fledermaus Ÿousand und einer schwarzen Fledermaus Trippel Trappel, sei gegrüßt.
+Rote Maus, wohin willst du gehen?
+Freier Durchgang, du kannst durch.
+Blauer Hase, wohin möchtest du ziehen?
+Freier Durchgang, du kannst durch.
+Flatter, flatter.
+Hallo, rote Maus, wohin soll's gehen?
+Gut gemacht.
+Du hast die Zaubertür gefunden.
+Aber sie öffnet sich nicht.
+Du kannst nicht durch.
+Wie schmecken mir die frischen Möhrchen und der leckere Käse vom Bauernhof?
+Schon wieder hat Hubi bei den Nachbarn gehamstert.
+Jetzt ist es aber genug.
+Schnell, macht euch auf den Weg ins Spuckhaus, um Hubi zu fangen und seinen Schabernack ein für alle Mal zu beenden.
+Findet zuerst die Zaubertüre.
+Sobald das Türknarzen Hubi gesetzt hat, könnt ihr ihn fangen.
+Nur Mut.
+Die tierischen Hausbewohner werden euch sicher helfen.
+Hallo.
+Schon, dass ihr hier seid.
+Bitte gebt ein, der mitspielt.
+Zweitausendein.
+
+
+Benvenuto. Fuori. Grande.
+Ora siamo completi.
+Quale giocatore vorrebbe iniziare?
+Si prega di premere il pulsante del lettore.
+Meraviglioso.
+Topo Rosso, puoi iniziare.
+Non preoccuparti, il compito non sarà difficile.
+Tu giochi al gioco facile.
+Andiamo.
+--GUFO
+Sciò sciù.
+Uh oh.
+Topo Rosso, dove vuoi trasferirti?
+Premi un pulsante di azione.
+Buco del topo, puoi passare.
+Uh.
+Coniglio blu, dove vuoi trasferirti?
+Buco del topo, non puoi passare.
+--VERME?
+Trippeltrappel, saluti.
+Topo Rosso, dove vuoi andare?
+Stai con me.
+Sono felice di aiutarti.
+Troverai la porta magica tra un pipistrello bianco e un pipistrello nero.
+--GUFO
+Coniglio blu, dove vuoi trasferirti?
+Stai con me.
+Vuoi saperne di più?
+La dipendenza è la porta magica che già conosci.
+Troverai la porta magica tra un pipistrello bianco Ÿousand e un pipistrello nero 
+--VERME?
+Trippel Trappel, saluti.
+Topo Rosso, dove vuoi andare?
+Passaggio libero, puoi passare.
+--GUFO
+Coniglio blu, dove vuoi trasferirti?
+Passaggio libero, puoi passare.
+--PIPISTRELLO
+Svolazzare, svolazzare.
+Ciao, topo rosso, dove stai andando?
+Ben fatto.
+Hai trovato la porta magica.
+Ma non si apre.
+Non puoi passare.
+
+
+
+--Quando ripassi dallo stesso posto dice:
+Wohin freier Durchgang, du kannst durch huhu grüner Hase.  Ihr kennt diesen Durchgang, du darfst noch einmal ziehen, wohin möchtest du zählen?
+
+Ovunque ci sia passaggio libero, puoi passare attraverso il coniglietto verde.
+Conosci questo passaggio, puoi muoverti ancora, dove vuoi contare?
+
+
+--Quando all'inizio vai verso il muro esterno, mossa non consentita, dice:
+Es wird aufgepasst. Das ist eine Außenwand. Wähle einen anderen Weg.
+Uhps, presta attenzione, non puoi andare verso un muro esterno. Scegli un altro percorso
+(muro_esterno.m4a)
+

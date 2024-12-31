@@ -1,0 +1,122 @@
+TRASCRIZIONE COMPLETA (o da completare) CON LE VARIE PARTI
+
+--INTRO.m4a
+--narratore
+(Benvenuti, prendi Hubi e vinci questo gioco.)
+
+--suono del vento e risata di Hubi, dal gioco originale
+--Hubi
+"oh, come mi piacciono le carote fresche e il delizioso formaggio della fattoria!"
+
+--narratore (maschio)
+Hubi ha di nuovo fatto tesoro rubando dalla tua dispensa!
+OPPURE
+Ancora una volta Hubi, il fantasma affamato, ha rubato dalla tua dispensa!
+Ma ora basta!
+Dirigiti velocemente (o "rapidamente") verso la casa infestata (o "stregata") per catturare Hubi e porre fine ai suoi imbrogli (o "al suo scherzo") una volta per tutte.
+Trova prima la porta magica.
+LIVELLO 2: Trova prima le DUE porte magiche.
+Non appena il cigolio della porta farà svegliare Hubi, potrai catturarlo, ma dovrete essere in due.
+Solo coraggio.
+Gli animali residenti ti aiuteranno sicuramente.
+
+--narratore (femmina)
+(Ciao.
+È bello che tu sia qui.
+Per favore, lascia che qualcuno partecipi al gioco.
+OPPURE inserisci chi sta giocando
+Scegli un personaggio e premi il pulsante del giocatore appropriato.
+Premi il pulsante di aiuto quando hai finito.)
+Scegli con quali personaggi vuoi giocare e in quale ordine.
+Premi il pulsante di aiuto quando hai finito.
+
+--narratore (femmina)
+Scegli il livello di difficoltà a cui vuoi giocare: verde, facile; giallo, difficile; rosso, molto difficile.
+
+
+--vari animali oppure voce del narratore
+Topo Rosso
+Topo Giallo
+Coniglio Blu
+Coniglio verde
+dove vuoi andare?
+
+--aggiungere un saluto prima del verso degli animali residenti? Ciao, Saluti, etc... ?????
+
+Buco (o "tana") del topo, puoi passare.
+Buco (o "tana") del topo, non puoi passare.
+Finestra del coniglio, puoi passare.
+Finestra del coniglio, non puoi passare.
+Passaggio libero, puoi passare.
+Muro, non puoi passare.
+
+Resta con me, sono felice di aiutarti.
+Troverai la porta magica tra
+un pipistrello
+un millepiedi
+un ranocchio
+un gufo
+bianco
+e
+nero
+
+Resta (o stai?) con me, sono felice di aiutarti.
+Ho visto Hubi, è con
+un pipistrello
+un millepiedi
+un ranocchio
+un gufo
+bianco
+nero
+
+Stai con me, ma non posso darti altri consigli, ti ho già aiutato abbastanza.
+
+--Quando ripassi dallo stesso posto dice:
+Wohin freier Durchgang, du kannst durch huhu grüner Hase.  Ihr kennt diesen Durchgang, du darfst noch einmal ziehen, wohin möchtest du zählen?
+Ovunque ci sia passaggio libero, puoi passare attraverso il coniglietto verde.
+Conosci questo passaggio, puoi muoverti ancora, dove vuoi contare?
+
+--Quando all'inizio vai verso il muro esterno, mossa non consentita, dice:
+Es wird aufgepasst. Das ist eine Außenwand. Wähle einen anderen Weg.
+Uhps, presta attenzione, non puoi andare verso un muro esterno. Scegli un altro percorso
+(muro_esterno.m4a)
+
+--closemagicwall.m4a
+Ben fatto. Hai trovato la porta magica.
+Ma non si apre.
+Non puoi passare.
+
+--openmagicwall.m4a
+Ben fatto. Hai trovato la porta magica.
+Fantastico, l'hai aperta! Vai avanti.
+Puoi passare.
+
+--Hubi (quando viene aperta la porta magica) -- hubiawake.m4a
+Uuuhh, sono Hubi il fantasma, cosa ci fai a casa mia?
+
+--Hubi (si muove) -- hubimove.m4a
+Buuhh, sono Hubi il fantasma, cammino per casa mia e non mi troverai mai!
+
+--Hubi (quando lo trova un giocatore) -- visithubi.m4a
+Buuhh, cosa stai facendo nella mia stanza?
+--narratore
+Ben fatto (o "bravo"), fai la guardia a Hubi, assicurati che non scappi!
+
+--Hubi (quando si è in 2 nella sua stanza) -- win.m4a
+oh no, ora siete in due a essere spug (???)
+oh no, ora siete in due, lo spettro/l'incubo è finito, è una bella risata --> è stato divertente!
+--narratore
+ben fatto, Hubi, ora sei sfortunato, gli animali coraggiosi ti hanno catturato, ora per te è finita!/ora è il momento di smetterla con le tue truffe/i tuoi "furtarelli"
+--Hubi
+(Scherzo pratico,) okay, mi avete beccato... Diventiamo amici?
+--narratore
+Congratulazioni, hai vinto, fantastico, è stato un sacco di lavoro.
+Congratulazioni, hai vinto, ce l'hai fatta, c'era mancato poco. 
+Hubi non farà più niente di stupido così in fretta.
+Hubi non farà niente di stupido tanto presto.
+
+--femmina
+Se vuoi giocare di nuovo, premi il pulsante di aiuto, e, se vuoi, seleziona un livello di difficoltà diverso.
+
+
+
