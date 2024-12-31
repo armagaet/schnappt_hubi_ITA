@@ -107,7 +107,7 @@ namespace Hubi
 			
 			/*********** NAudio.Wave for PLAY MUSIC and STOP when press any key ***********/
 			//PlayAudioAndHandleInput("sound\\jingle_intro.m4a", "Select Level of the game 1-3: ", "123");
-			//PlayAudioAndHandleInput("sound\\player_select.m4a", "Select Player Order (rgby): ", "rgby");
+			//PlayAudioAndHandleInput("sound\\selectplayer.m4a", "Select Player Order (rgby): ", "rgby");
 			
 			Console.Write("Select Level of the game 1-3: ");
 			WaveOutEvent outputDevice = null;
@@ -136,6 +136,7 @@ namespace Hubi
                 }
                 Thread.Sleep(100); // Riduce l'utilizzo della CPU
             }
+			
 			int lev = -1;
 			while (lev < 1 || lev > 3) // Assicurati che l'input sia valido
 			{
@@ -165,7 +166,7 @@ namespace Hubi
 			Console.Write("Select Player Order (rgby): ");
 			WaveOutEvent outputDevice2 = null;
 			AudioFileReader audioFile2 = null;
-			string filePath2 = "sound\\player_select.m4a";
+			string filePath2 = "sound\\selectplayer.m4a";
 			// Stop the current playback if running
 			outputDevice2?.Stop();
 			outputDevice2?.Dispose();
@@ -190,7 +191,7 @@ namespace Hubi
                 Thread.Sleep(100); // Riduce l'utilizzo della CPU
             }
             //Console.Write("Player Order (rgby): ");
-			//StartPlayback("player_select", "audio");
+			//StartPlayback("selectplayer", "audio");
             string players = Console.ReadLine();
 			/*********** NAudio.Wave for PLAY MUSIC ***********/
 
