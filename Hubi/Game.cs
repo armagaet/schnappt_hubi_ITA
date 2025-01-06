@@ -108,6 +108,7 @@ namespace Hubi
             {
                 case FieldType.Owl:
                     media.AddSound("saluto_gufo");
+					//Program.PlayAndStopAudio("sound\\saluto_gufo.m4a");
                     break;
                 case FieldType.Worm:
                     media.AddSound("saluto_verme");
@@ -124,6 +125,7 @@ namespace Hubi
             {
                 case PlayerColor.Blue:
                     media.AddSound("blue");
+					//Program.PlayAndStopAudio("sound\\blue.m4a");
                     break;
                 case PlayerColor.Red:
                     media.AddSound("red");
@@ -143,19 +145,23 @@ namespace Hubi
             bool extraMove = false;
             bool hubiMove = false;
             int nexthubiMove = -1;
+			//aggiungo un contatore continuo per le extramove perche' nel gioco originale fa muovere al massimo 2 volte di seguito
+			int count_extramove = 0;
 
             while (!validCommand || extraMove)
             {
-                if (extraMove == true)
+                if (extraMove == true && count_extramove<1)
                 {
                     Console.WriteLine("Extra move");
                     media.AddSound("extramove");
                     PrintMesh(BuildPrintMesh());
                     extraMove = false;
+					count_extramove++;
                 }
 
                 media.AddSound("move");
                 media.Play();
+				//Program.PlayAndStopAudio("sound\\move.m4a");
                 Console.Write("Your Move (H=Help, R=Repeat) ? >");
                 var command = Console.ReadKey().Key;
                 while(command == ConsoleKey.R)
@@ -281,7 +287,7 @@ namespace Hubi
                             else
                             {
                                 Console.WriteLine("Hubi is awake ");
-                                media.AddSound("hubiawake");
+                                media.AddSound("hubiawake_caverna");
                                 AwakeHubi();
                                 PrintHelp(player.PosX, player.PosY, hubi.IsAwake);
                             }
@@ -301,6 +307,7 @@ namespace Hubi
                         }
                         break;
                     case WallType.MagicOpen:
+						media.AddSound("magicdoor_opening");
                         media.AddSound("openmagicwall");
                         media.AddSound("pass");
                         Console.WriteLine("Open Magic Door, can pass");
@@ -315,21 +322,34 @@ namespace Hubi
                 {
                     player.PosX += xDir;
                     player.PosY += yDir;
-                    if(player.AddVisitedField(player.PosX, player.PosY))
+					//blocco if originale
+					/*if (player.AddVisitedField(player.PosX, player.PosY))
                     {
                         extraMove = true;
+                    }*/
+					//nel gioco originale fa muovere al massimo 2 volte di seguito
+					if (player.AddVisitedField(player.PosX, player.PosY))
+                    {
+						if(count_extramove==1) {extraMove = false;}
+                        else {extraMove = true;}
                     }
                     var playerWithHubi = CheckFinish();
                     if(playerWithHubi >= 2)
                     {
                         Console.WriteLine("You have won");
-                        media.AddSound("win");
+                        //media.AddSound("win");
+						//lo scompongo
+						media.AddSound("win_hubi_caverna");
+						media.AddSound("win_narrator");
+						media.AddSound("win_hubi2_caverna");
+						media.AddSound("win_narrator2");
                         return true;
                     }
                     else if(playerWithHubi == 1)
                     {
                         Console.WriteLine("Hubi is here");
-                        media.AddSound("visithubi");
+                        media.AddSound("visithubi_caverna");
+						media.AddSound("hubi_check");
                         if(nexthubiMove == -1)
                             nexthubiMove = 0;
                     }
@@ -347,7 +367,7 @@ namespace Hubi
                 if (hubiMove)
                 {
                     Console.WriteLine("Hubi is moved");
-                    media.AddSound("hubimove");
+                    media.AddSound("hubimove_caverna");
                     PrintHelp(player.PosX, player.PosY, hubi.IsAwake);
                     MoveHubi();
                     PrintMesh(BuildPrintMesh());
@@ -488,7 +508,8 @@ namespace Hubi
                     if(shift == 0)
                     {
                         Console.WriteLine($"The magic door is between {magic1.FieldColor},{magic1.FieldType} and {magic2.FieldColor},{magic2.FieldType}");
-                        media.AddSound("magicbetween");
+                        media.AddSound("staywithme");
+						media.AddSound("magicbetween");
 						//inverto prima l'animale e poi il colore, per l'italiano
                         media.AddSound(magic1.FieldType.ToString().ToLower());
 						media.AddSound(magic1.FieldColor.ToString().ToLower());
@@ -499,6 +520,7 @@ namespace Hubi
                     else
                     {
                         Console.WriteLine($"The magic door is between {magic2.FieldColor},{magic2.FieldType} and {magic1.FieldColor},{magic1.FieldType}");
+						media.AddSound("staywithme");
                         media.AddSound("magicbetween");
                         media.AddSound(magic2.FieldType.ToString().ToLower());
 						media.AddSound(magic2.FieldColor.ToString().ToLower());
@@ -509,19 +531,32 @@ namespace Hubi
                 }
                 else if (level == 2)
                 {
-                    Field magic = GetMagicFieldForHint(magic1, magic2, shift);
+                    /* nel gioco originale al livello 2 viene ancora data la posizione della porta tra 2 animali
+					Field magic = GetMagicFieldForHint(magic1, magic2, shift);
                     Console.WriteLine($"The magic door is next to {magic.FieldColor},{magic.FieldType}");
-                    media.AddSound("magicnext");
+                    media.AddSound("staywithme");
+					media.AddSound("magicnext");
 					//inverto ordine colore-animale per italiano:
 					media.AddSound(magic.FieldType.ToString().ToLower());
                     media.AddSound(magic.FieldColor.ToString().ToLower());
+					*/
+					Console.WriteLine($"The magic door is between {magic1.FieldColor},{magic1.FieldType} and {magic2.FieldColor},{magic2.FieldType}");
+                    media.AddSound("staywithme");
+					media.AddSound("magicbetween");
+					//inverto prima l'animale e poi il colore, per l'italiano
+                    media.AddSound(magic1.FieldType.ToString().ToLower());
+					media.AddSound(magic1.FieldColor.ToString().ToLower());
+                    media.AddSound("and");
+					media.AddSound(magic2.FieldType.ToString().ToLower());
+                    media.AddSound(magic2.FieldColor.ToString().ToLower());
                 }
                 else if (level == 3)
                 {
                     Field magic = GetMagicFieldForHint(magic1, magic2, shift);
 
                     Console.WriteLine($"The magic door is next to {magic1.FieldType}");
-                    media.AddSound("magicnext");
+                    media.AddSound("staywithme");
+					media.AddSound("magicnext");
                     media.AddSound(magic1.FieldType.ToString().ToLower());
                 }
 				//provo a gestire il fatto che si sia già dato un aiuto:
@@ -531,7 +566,8 @@ namespace Hubi
             {
                 var hubiField = board.Single(f => f.x == hubi.Pos.X && f.y == hubi.Pos.Y);
                 Console.WriteLine($"Hubi is seen: {hubiField.FieldColor},{hubiField.FieldType}");
-                media.AddSound("hubiseen");
+                media.AddSound("staywithme");
+				media.AddSound("hubiseen");
                 media.AddSound(hubiField.FieldColor.ToString().ToLower());
                 media.AddSound(hubiField.FieldType.ToString().ToLower());
             }

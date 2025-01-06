@@ -1,0 +1,716 @@
+--> sottotitoli creati da youtube, partendo da un video ad immagine fissa creato con ffmpeg
+--> ffmpeg.exe -loop 1 -i .\image.jpg -i .\trovato_fantasma_e_vinto.mp3 -shortest out.mp4
+
+
+1
+00:00:05,279 --> 00:00:11,679
+wunderbar rote Maus du darfst beginnen
+
+2
+00:00:09,360 --> 00:00:13,880
+keine Sorge die Aufgabe wird nicht
+
+3
+00:00:11,679 --> 00:00:17,160
+schwer werden ihr spielt das leichte
+
+4
+00:00:13,880 --> 00:00:17,160
+Spiel los
+
+5
+00:00:23,039 --> 00:00:30,880
+geht's du bleibst bei mir ich helfe gern
+
+6
+00:00:27,640 --> 00:00:35,520
+ihr findet die Zaubertüre zwischen einer
+
+7
+00:00:30,880 --> 00:00:35,520
+weißen kolte und einem schwarzen
+
+8
+00:00:45,640 --> 00:00:53,079
+Tausenfüßler grüner Hase wohin möchtest
+
+9
+00:00:49,879 --> 00:00:53,079
+du ziehen
+
+10
+00:01:04,000 --> 00:01:11,400
+du bleibst bei mir du willst noch mehr
+
+11
+00:01:07,960 --> 00:01:15,200
+wissen sucht erst die zaubertür die ihr
+
+12
+00:01:11,400 --> 00:01:18,360
+schon kennt ihr findet die Zaubertüre
+
+13
+00:01:15,200 --> 00:01:21,040
+zwischen einer weißen kte und einem
+
+14
+00:01:18,360 --> 00:01:21,040
+schwarzen
+
+15
+00:01:26,479 --> 00:01:31,759
+Tausendfüßler sch Schu
+
+16
+00:01:32,079 --> 00:01:38,680
+rote Maus freier Durchgang du kannst
+
+17
+00:01:46,360 --> 00:01:52,320
+durch freier Durchgang du kannst
+
+18
+00:01:57,560 --> 00:02:05,520
+durch Tri
+
+19
+00:02:00,439 --> 00:02:05,520
+Abel Paus looch du kannst
+
+20
+00:02:10,239 --> 00:02:18,200
+durch Quark
+
+21
+00:02:13,120 --> 00:02:18,200
+quarkfier Durchgang du kannst
+
+22
+00:02:23,120 --> 00:02:33,360
+durch qu qu guten Tag roteb bleibst bei
+
+23
+00:02:29,480 --> 00:02:36,879
+mir ja du willst noch mehr wissen sucht
+
+24
+00:02:33,360 --> 00:02:40,800
+erst die zaubertür die ihr schon kennt
+
+25
+00:02:36,879 --> 00:02:46,040
+ihr findet die Zaubertüre zwischen einer
+
+26
+00:02:40,800 --> 00:02:46,040
+weißen Kröte und einem schwarzen
+
+27
+00:02:52,000 --> 00:03:01,239
+Tausendfüßler trilippel Trappel
+
+28
+00:02:56,120 --> 00:03:01,239
+kuselloch du kannst nicht durch
+
+29
+00:03:08,680 --> 00:03:18,840
+guten Tag rote Maus wohin willst du
+
+30
+00:03:14,159 --> 00:03:18,840
+fasenfenster du kannst nicht
+
+31
+00:03:20,599 --> 00:03:28,280
+durch du bleibst bei mir du willst noch
+
+32
+00:03:24,599 --> 00:03:30,360
+mehr wissen sucht erst die zaubertür die
+
+33
+00:03:28,280 --> 00:03:33,480
+ihr schon kennt
+
+34
+00:03:30,360 --> 00:03:38,400
+ihr findet die Zaubertüre zwischen einer
+
+35
+00:03:33,480 --> 00:03:38,400
+weißen Kröte und einem schwarzen
+
+36
+00:03:41,920 --> 00:03:48,840
+Tausendfüßler
+
+37
+00:03:44,200 --> 00:03:48,840
+hasasenfenster du kannst nicht
+
+38
+00:03:55,640 --> 00:04:00,360
+durchenfenster du kannst durch
+
+39
+00:04:07,879 --> 00:04:13,400
+guten Tag rote Maus wohin willst
+
+40
+00:04:13,959 --> 00:04:20,120
+du freier Durchgang du kannst
+
+41
+00:04:27,360 --> 00:04:33,240
+durch freier Durchgang
+
+42
+00:04:30,360 --> 00:04:33,240
+du kannst
+
+43
+00:04:37,639 --> 00:04:44,039
+durch sch freier Durchgang du kannst
+
+44
+00:04:47,039 --> 00:04:54,160
+durch gut gemacht du hast die zaubertür
+
+45
+00:04:56,479 --> 00:05:03,880
+gefunden super sie hat sich
+
+46
+00:05:00,280 --> 00:05:06,840
+geöffnet gehe
+
+47
+00:05:03,880 --> 00:05:11,080
+durch ich bin Hubi das
+
+48
+00:05:06,840 --> 00:05:11,080
+Gespenst was macht ihr in meinem
+
+49
+00:05:13,240 --> 00:05:22,000
+Haus ich will dir was verraten ich habe
+
+50
+00:05:16,800 --> 00:05:25,720
+Hubi gesehen er ist bei einer schwarzen
+
+51
+00:05:22,000 --> 00:05:30,080
+Fledermaus schnell sch dort einmal nach
+
+52
+00:05:25,720 --> 00:05:33,520
+sei gegrüßt grüner Hase du H ist die
+
+53
+00:05:30,080 --> 00:05:37,600
+zaubertür geöffnet du darfst noch einmal
+
+54
+00:05:33,520 --> 00:05:37,600
+ziehen wohin willst du
+
+55
+00:05:40,319 --> 00:05:49,120
+gehen du bleibst bei mir ich helfe gern
+
+56
+00:05:45,039 --> 00:05:51,720
+ich habe Hubi gesehen er ist bei einer
+
+57
+00:05:49,120 --> 00:05:51,720
+schwarzen
+
+58
+00:05:57,759 --> 00:06:06,800
+Fledermaus Trippe Trappel sei gegrüßt
+
+59
+00:06:02,639 --> 00:06:11,199
+rote Maus wohin willst du gehen
+
+60
+00:06:06,800 --> 00:06:11,199
+Mauer du kannst nicht
+
+61
+00:06:15,960 --> 00:06:26,440
+durch Trippel Trappel sei gegrüßt grüner
+
+62
+00:06:22,680 --> 00:06:30,120
+hamauer du kannst nicht durch
+
+63
+00:06:26,440 --> 00:06:33,560
+Bo ich bin hui das Gespenst
+
+64
+00:06:30,120 --> 00:06:33,560
+ich wandle durch mein
+
+65
+00:06:34,080 --> 00:06:41,759
+Haus ihr findet mich
+
+66
+00:06:38,160 --> 00:06:46,639
+nie ich will dir was verraten ich habe
+
+67
+00:06:41,759 --> 00:06:51,680
+Rubi gesehen er ist bei einer schwarzen
+
+68
+00:06:46,639 --> 00:06:51,680
+Eule schnell schau dort einmal
+
+69
+00:06:56,879 --> 00:07:06,120
+nach Trippel Trappel
+
+70
+00:07:00,120 --> 00:07:06,120
+sei gegrüßt rote Maus wohin willst du
+
+71
+00:07:17,120 --> 00:07:25,720
+gehen geöffnete zaubertür du kannst
+
+72
+00:07:21,319 --> 00:07:28,759
+durch guten Tag rote Maus ihr kennt
+
+73
+00:07:25,720 --> 00:07:32,800
+diesen Durchgang du darfst noch einmal
+
+74
+00:07:28,759 --> 00:07:32,800
+ziehen wohin willst
+
+75
+00:07:33,520 --> 00:07:39,479
+du freier Durchgang du kannst
+
+76
+00:07:44,680 --> 00:07:52,680
+durch Trippel Trappel sei gegrüßt grüner
+
+77
+00:07:50,000 --> 00:07:56,759
+Hase wohin willst du
+
+78
+00:07:52,680 --> 00:08:01,199
+gehen geöffnete zaubertür du kannst
+
+79
+00:07:56,759 --> 00:08:04,199
+durch guten Tag grüner Nase ihr kennt
+
+80
+00:08:01,199 --> 00:08:08,240
+diesen Durchgang du darfst noch einmal
+
+81
+00:08:04,199 --> 00:08:08,240
+ziehen wohin willst
+
+82
+00:08:14,960 --> 00:08:24,360
+du du bleibst bei mir ich helfe gern ich
+
+83
+00:08:20,479 --> 00:08:26,840
+habe hui gesehen er ist bei einer
+
+84
+00:08:24,360 --> 00:08:26,840
+schwarzen
+
+85
+00:08:27,280 --> 00:08:31,280
+Eule oh
+
+86
+00:08:33,959 --> 00:08:43,000
+sch freier Durchgang du kannst durch
+
+87
+00:08:39,080 --> 00:08:46,360
+guten Tag rote Maus ihr kennt diesen
+
+88
+00:08:43,000 --> 00:08:49,519
+Durchgang du darfst noch einmal ziehen
+
+89
+00:08:46,360 --> 00:08:49,519
+wohin willst
+
+90
+00:08:49,680 --> 00:08:59,720
+du geöffnete zaubertür du kannst
+
+91
+00:08:55,839 --> 00:09:02,959
+durch ich bin hui das Gespenst
+
+92
+00:08:59,720 --> 00:09:02,959
+ich wandle durch mein
+
+93
+00:09:03,480 --> 00:09:07,800
+Haus ihr findet mich
+
+94
+00:09:07,839 --> 00:09:17,279
+nie ich will dir was verraten ich habe
+
+95
+00:09:11,760 --> 00:09:20,480
+Hubi gesehen er ist bei einem weißen
+
+96
+00:09:17,279 --> 00:09:23,480
+Tausendfüßler schnell schaut dort einmal
+
+97
+00:09:20,480 --> 00:09:23,480
+nach
+
+98
+00:09:30,040 --> 00:09:39,360
+qu guten Tag grüner Hase wohin wir
+
+99
+00:09:34,640 --> 00:09:39,360
+freier Durchgang du kannst
+
+100
+00:09:44,480 --> 00:09:53,000
+durch Trippel Trappel sei gegrüßt rote
+
+101
+00:09:49,920 --> 00:09:56,040
+Maus wohin willst du gehen Dreier
+
+102
+00:09:53,000 --> 00:09:58,320
+Durchgang du kannst
+
+103
+00:09:56,040 --> 00:10:02,160
+durch rote
+
+104
+00:09:58,320 --> 00:10:06,079
+Maus darfst noch einmal ziehen freier
+
+105
+00:10:02,160 --> 00:10:06,079
+Durchgang du kannst
+
+106
+00:10:11,000 --> 00:10:19,720
+durch flatter flatter hallo grüner Hase
+
+107
+00:10:16,160 --> 00:10:22,200
+wohin soll es gehen freier Durchgang du
+
+108
+00:10:19,720 --> 00:10:22,200
+kannst
+
+109
+00:10:25,440 --> 00:10:35,600
+durch du bleibst bei mir ich rate nichts
+
+110
+00:10:30,600 --> 00:10:35,600
+mehr ich habe euch schon genug
+
+111
+00:10:36,279 --> 00:10:43,079
+geholfen ich bin hui das Gespenst ich
+
+112
+00:10:40,079 --> 00:10:43,079
+wandle durch mein
+
+113
+00:10:43,519 --> 00:10:50,079
+Haus ihr findet mich
+
+114
+00:10:46,800 --> 00:10:54,839
+nie die Sonne ist schon untergegangen
+
+115
+00:10:50,079 --> 00:10:59,680
+beeilt euch ich will dires verraten ich
+
+116
+00:10:54,839 --> 00:11:04,240
+habe hi gesehen er ist bei einer weißen
+
+117
+00:10:59,680 --> 00:11:04,240
+bitte schnell schaut dort einmal
+
+118
+00:11:09,079 --> 00:11:17,320
+nach flatter flatter hallo grüner Hase
+
+119
+00:11:14,200 --> 00:11:17,320
+wohin soll es
+
+120
+00:11:18,920 --> 00:11:24,880
+gehen
+
+121
+00:11:20,920 --> 00:11:24,880
+Mauseloch du kannst nicht
+
+122
+00:11:26,320 --> 00:11:34,399
+durch auseloch
+
+123
+00:11:29,399 --> 00:11:37,600
+du kannst durch sei gegrüßt rote Maus du
+
+124
+00:11:34,399 --> 00:11:39,720
+darfst noch einmal ziehen wohin willst
+
+125
+00:11:37,600 --> 00:11:39,720
+du
+
+126
+00:11:39,800 --> 00:11:45,959
+gehen freier Durchgang du kannst
+
+127
+00:11:49,360 --> 00:11:54,920
+durch freier Durchgang du kannst
+
+128
+00:11:56,360 --> 00:12:04,519
+durch freier Durchgang du kannst durch
+
+129
+00:12:00,320 --> 00:12:09,320
+sei gegrüßt rote Maus du darfst noch
+
+130
+00:12:04,519 --> 00:12:09,320
+einmal ziehen wohin willst du
+
+131
+00:12:09,480 --> 00:12:19,320
+gehen freier Durchgang du kannst
+
+132
+00:12:14,920 --> 00:12:22,399
+durch ich bin hui das Gespenst ich
+
+133
+00:12:19,320 --> 00:12:22,399
+wandle durch mein
+
+134
+00:12:23,000 --> 00:12:30,600
+Haus ihr findet mich
+
+135
+00:12:27,000 --> 00:12:35,480
+nie ich will dir was warten ich habe
+
+136
+00:12:30,600 --> 00:12:40,480
+Hubi gesehen er ist bei einer schwarzen
+
+137
+00:12:35,480 --> 00:12:40,480
+Eule schnell scha dort einmal
+
+138
+00:12:47,000 --> 00:12:51,000
+nachenfenster du kannst
+
+139
+00:12:55,519 --> 00:13:03,760
+durch freier Durchgang du kannst durch
+
+140
+00:13:00,000 --> 00:13:07,519
+sei gegrüßt rote Maus du darfst noch
+
+141
+00:13:03,760 --> 00:13:11,600
+einmal ziehen wohin willst du gehen du
+
+142
+00:13:07,519 --> 00:13:17,639
+bleibst bei mir ich helfe gern ich habe
+
+143
+00:13:11,600 --> 00:13:17,639
+Rubi gesehen er ist bei einer schwarzen
+
+144
+00:13:20,440 --> 00:13:27,480
+Eule
+
+145
+00:13:22,199 --> 00:13:27,480
+Mauer du kannst nicht durch
+
+146
+00:13:32,839 --> 00:13:41,079
+Trippel Trappel sei gegrüßt rote Maus
+
+147
+00:13:37,760 --> 00:13:43,560
+wohin willst du Dreier Durchgang du
+
+148
+00:13:41,079 --> 00:13:43,560
+kannst
+
+149
+00:13:45,079 --> 00:13:49,360
+durch was machst du in meinem
+
+150
+00:13:49,399 --> 00:13:59,160
+Raum gut gemacht du bewachst Hubi pass
+
+151
+00:13:55,160 --> 00:13:59,160
+auf dass er nicht entwischt
+
+152
+00:14:03,639 --> 00:14:08,360
+freier Durchgang du kannst
+
+153
+00:14:11,519 --> 00:14:21,079
+durch du bleibst bei mir gut gemacht du
+
+154
+00:14:17,160 --> 00:14:23,399
+bewachst hui lang wird der Spuk nicht
+
+155
+00:14:21,079 --> 00:14:23,399
+mehr
+
+156
+00:14:26,480 --> 00:14:35,079
+dauern freier Durchgang du kannst durch
+
+157
+00:14:30,720 --> 00:14:39,800
+sei gegrüßt grüner Hase du darfst noch
+
+158
+00:14:35,079 --> 00:14:39,800
+einmal ziehen wohin willst du
+
+159
+00:14:41,800 --> 00:14:50,440
+gehen freier Durchgang du kannst durch
+
+160
+00:14:46,480 --> 00:14:54,079
+oh nein jetzt seid ihr schon zu zweit
+
+161
+00:14:50,440 --> 00:14:54,079
+der spug ist
+
+162
+00:14:55,480 --> 00:15:02,959
+aus gut gemacht tja Hubi jetzt hast du
+
+163
+00:15:00,440 --> 00:15:06,199
+Pech gehabt die mutigen Tiere haben dich
+
+164
+00:15:02,959 --> 00:15:09,079
+gefangen jetzt ist Schluss mit deinem
+
+165
+00:15:06,199 --> 00:15:10,759
+Schabernack okay ihr habt mich erwischt
+
+166
+00:15:09,079 --> 00:15:15,759
+lasst uns Freunde
+
+167
+00:15:10,759 --> 00:15:15,759
+sein herzlichen Glückwunsch ihr habt
+
+168
+00:15:17,120 --> 00:15:23,480
+gewonnen prima das war ein ganzes Stück
+
+169
+00:15:20,639 --> 00:15:26,279
+Arbeit so schnell wird Hubi keine
+
+170
+00:15:23,480 --> 00:15:26,279
+Dummheiten mehr
+
+171
+00:15:26,480 --> 00:15:31,319
+machen wenn ihr das Spiel gleich noch
+
+172
+00:15:29,279 --> 00:15:34,000
+einmal spielen wollt drückt die
+
+173
+00:15:31,319 --> 00:15:35,839
+Hilfetaste wenn ihr in einer anderen
+
+174
+00:15:34,000 --> 00:15:37,600
+Schwierigkeitsstufe spielen wollt
+
+175
+00:15:35,839 --> 00:15:40,600
+verschiebt den Schalter an der
+
+176
+00:15:37,600 --> 00:15:40,600
+Unterseite
+
+177
+00:15:59,319 --> 00:16:06,319
+ho trovato il fantasma e ho vinto quindi
+
+178
+00:16:01,880 --> 00:16:06,319
+in questa edizione c'è tutto
+

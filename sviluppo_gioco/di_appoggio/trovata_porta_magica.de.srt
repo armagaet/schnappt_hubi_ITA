@@ -1,0 +1,111 @@
+--> sottotitoli creati da youtube, partendo da un video ad immagine fissa creato con ffmpeg
+--> ffmpeg.exe -loop 1 -i .\image.jpg -i .\trovata_porta_magica.mp3 -shortest out.mp4
+
+--> traduzione (fa cacare)
+Stai con me, sarò felice di aiutarti. Trova la porta magica tra un topo nutrice nero e un topo bianco dalle mille zampe
+[Musica]
+Trippel Trappel saluti topo rosso, dove vuoi andare
+Saluti topo rosso, tocca a te
+Per favore, dimmi cosa vuoi fare. Ben fatto, l'hai fatto
+trovato ma non si apre non puoi tramite H
+[Musica]
+verde ciao bello benvenuto benvenuto fantastico ora ci siamo
+ciao benvenuto, ciao, bello
+sei ciao ciao, piacere di averti qui
+
+1
+00:00:16,440 --> 00:00:23,279
+du bleibst bei mir ich helfe gern ihr
+
+2
+00:00:20,880 --> 00:00:26,480
+findet die Zaubertüre zwischen einer
+
+3
+00:00:23,279 --> 00:00:30,119
+schwarzen pflegermaus und einem weißen
+
+4
+00:00:26,480 --> 00:00:30,119
+tausend füßel
+
+5
+00:00:32,619 --> 00:00:36,960
+[Musik]
+
+6
+00:00:35,480 --> 00:00:41,120
+Trippel
+
+7
+00:00:36,960 --> 00:00:44,520
+Trappel sei gegrüßt rote Maus wohin
+
+8
+00:00:41,120 --> 00:00:44,520
+willst du gehen
+
+9
+00:01:11,520 --> 00:01:20,520
+sei gegrüßt rote Maus du bist am Zug
+
+10
+00:01:16,479 --> 00:01:20,520
+bitte sage mir was Du machen
+
+11
+00:01:25,840 --> 00:01:30,640
+möchtestücktionstaste gut gemacht du
+
+12
+00:01:28,640 --> 00:01:34,880
+hast dieaubert
+
+13
+00:01:30,640 --> 00:01:37,759
+gefunden aber sie öffnet sich nicht du
+
+14
+00:01:34,880 --> 00:01:37,759
+kannst nicht
+
+15
+00:01:44,960 --> 00:01:49,000
+durch H
+
+16
+00:01:49,110 --> 00:01:55,200
+[Musik]
+
+17
+00:01:51,520 --> 00:01:59,680
+grüner hallo schön willkommen willkommen
+
+18
+00:01:55,200 --> 00:01:59,680
+prima jetzt sind wir
+
+19
+00:02:02,920 --> 00:02:05,920
+hallo
+
+20
+00:02:12,200 --> 00:02:16,519
+willkommen hallo schön dass
+
+21
+00:02:16,959 --> 00:02:19,959
+ihrind
+
+22
+00:02:20,959 --> 00:02:26,519
+hallo hallo schön dass ihr hier
+
+23
+00:02:29,959 --> 00:02:34,560
+l'ultimo tratto è che ha trovato la
+
+24
+00:02:31,280 --> 00:02:34,560
+porta Magica
+

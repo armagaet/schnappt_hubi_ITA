@@ -1,4 +1,22 @@
-﻿using System;
+﻿/*
+OTTIMIZZAZIONI:
+DONE:
+- aggiunti alcuni suoni del gioco originale
+- aggiunta intro al gioco
+- aggiunti i saluti degli animali in base alla casella su cui si trova il giocatore, per aiutare i giocatori a capire se la loro pedina si trova sulla casella corretta
+- consentita UNA SOLA ripetizione di azione in caso di movimento verso casella già nota, come nel gioco originale
+- interruzione dei suoni dopo aver premuto un tasto -- DA MIGLIORARE
+
+
+TO DO:
+- frase di sollecitazione dopo circa 6 mosse da quando si sveglia Hubi: 
+- frase di sollecitazione dopo circa 15" di inattività
+- voci degli animali in base all'animale
+- aggiungere jingle della vittoria
+
+*/
+
+using System;
 using System.IO;
 //aggiungo questi moduli nella speranza di poter lanciare da subito la classe Media
 using System.Collections.Generic;
@@ -7,6 +25,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Hubi.Helpers; //per avvio AntiMicro
+//using System.Collections.Generic; //per le code di NAudio
 using NAudio.Wave; //nel caso volessi usare questa libreria per riprodurre file audio senza richiamare vlc esterno
 
 namespace Hubi
@@ -17,6 +36,11 @@ namespace Hubi
 		private static MediaPlayer media; // Istanza del MediaPlayer
         private static bool isPlaying = false; // Flag per il controllo della riproduzione
         private static Thread playbackThread; // Thread per la riproduzione audio
+		private static bool playbackStopped = false;
+		//provo la riproduzione di una coda con NAudio
+		/*private static Queue<string> _audioQueue = new Queue<string>(); // Coda dei file audio
+		private static IWavePlayer _wavePlayer;
+		private static AudioFileReader _currentAudioFile;*/
 			
         static void Main(string[] args)
         {
@@ -109,33 +133,33 @@ namespace Hubi
 			//PlayAudioAndHandleInput("sound\\jingle_intro.m4a", "Select Level of the game 1-3: ", "123");
 			//PlayAudioAndHandleInput("sound\\selectplayer.m4a", "Select Player Order (rgby): ", "rgby");
 			
+			string filePath1 = "sound\\jingle_intro.m4a";
+			string filePath2 = "sound\\selectlevel.m4a";
+			string filePath3 = "sound\\selectplayer.m4a";
+			//string filePath4 = "sound\\intro.m4a";
+			string filePath40 = "sound\\intro_hubi0.m4a";
+			string filePath41 = "sound\\intro_hubi.m4a";
+			string filePath42 = "sound\\intro_narrator.m4a";
+			string filePath43 = "sound\\intro_find1magicdoor.m4a";
+			string filePath44 = "sound\\intro_find2magicdoor.m4a";
+			string filePath45 = "sound\\intro_narrator2.m4a";
+			
+			//richiamo una funzione per la riproduzione audio interrompendola se viene premuto un tasto
+			Console.WriteLine("Benvenuti, prendi Hubi e vinci questo gioco!");
+			PlayAndStopAudio(filePath1);
+			//Simula l'input "q" per Console.ReadKey() per passare all'input successivo nel caso di audio terminato
+			var simulatedConsole = new SimulatedConsole("q");
+			if (playbackStopped) {
+				Console.WriteLine("Riproduzione audio terminata");
+				var key_avuoto = simulatedConsole.ReadKey(); //recepisco il recepimento dell'input simulato
+			}
+			else {
+				var key_avuoto = Console.ReadKey(true); //'true' evita che il tasto premuto venga mostrato sulla console
+			}
+			
 			Console.Write("Select Level of the game 1-3: ");
-			WaveOutEvent outputDevice = null;
-			AudioFileReader audioFile = null;
-			string filePath3 = "sound\\jingle_intro.m4a";
-			// Stop the current playback if running
-			outputDevice?.Stop();
-			outputDevice?.Dispose();
-			audioFile?.Dispose();
-			// Load and play the new file
-			audioFile = new AudioFileReader(filePath3);
-			outputDevice = new WaveOutEvent();
-			outputDevice.Init(audioFile);
-			outputDevice.Play();
-			// Interrompe se viene premuto un tasto
-            while (outputDevice.PlaybackState == PlaybackState.Playing)
-            {
-                if (Console.KeyAvailable)
-                {
-					outputDevice?.Stop();
-					outputDevice?.Dispose();
-					outputDevice = null;
-					audioFile?.Dispose();
-					audioFile = null;
-                    break;
-                }
-                Thread.Sleep(100); // Riduce l'utilizzo della CPU
-            }
+			//richiamo una funzione per la riproduzione audio interrompendola se viene premuto un tasto
+			PlayAndStopAudio(filePath2);
 			
 			int lev = -1;
 			while (lev < 1 || lev > 3) // Assicurati che l'input sia valido
@@ -163,10 +187,20 @@ namespace Hubi
 			// Avvia AntiMicro in background
             antimicroHelper.StartAntimicro(antimicroPath, configPath2);
 			
+			//audio dell'intro:
+			PlayAndStopAudio(filePath40);
+			PlayAndStopAudio(filePath41);
+			PlayAndStopAudio(filePath42);
+			if (lev==1) { PlayAndStopAudio(filePath43); }
+			else { PlayAndStopAudio(filePath44); }
+			PlayAndStopAudio(filePath45);
+			var key2_avuoto = Console.ReadKey(true); //'true' evita che il tasto premuto venga mostrato sulla console
 			Console.Write("Select Player Order (rgby): ");
+			//richiamo una funzione per la riproduzione audio interrompendola se viene premuto un tasto
+			PlayAndStopAudio(filePath3);
+			/*
 			WaveOutEvent outputDevice2 = null;
 			AudioFileReader audioFile2 = null;
-			string filePath2 = "sound\\selectplayer.m4a";
 			// Stop the current playback if running
 			outputDevice2?.Stop();
 			outputDevice2?.Dispose();
@@ -190,6 +224,7 @@ namespace Hubi
                 }
                 Thread.Sleep(100); // Riduce l'utilizzo della CPU
             }
+			*/
             //Console.Write("Player Order (rgby): ");
 			//StartPlayback("selectplayer", "audio");
             string players = Console.ReadLine();
@@ -245,6 +280,99 @@ namespace Hubi
                 isEnd = game.Loop();
             }
         }
+		
+		//suggerito da chatgpt - merda
+		/*
+		private static void PlayAndStopAudio(string audioFileName)
+		{
+			using (var outputDevice = new WaveOutEvent())
+			using (var audioFile = new AudioFileReader(audioFileName))
+			{
+				bool playbackStopped = false;
+	
+				// Evento chiamato alla fine della riproduzione
+				outputDevice.PlaybackStopped += (sender, e) =>
+				{
+					playbackStopped = true;
+				};
+	
+				// Avvia la riproduzione
+				outputDevice.Init(audioFile);
+				outputDevice.Play();
+	
+				// Attendi la fine della riproduzione o l'intervento dell'utente
+				while (!playbackStopped)
+				{
+					if (Console.KeyAvailable)
+					{
+						// Interrompe se viene premuto un tasto
+						outputDevice.Stop();
+						break;
+					}
+					Thread.Sleep(100); // Riduce l'utilizzo della CPU
+				}
+			}
+		}
+		*/
+		
+		//suggerito da chatgpt per simulare input da tastiera
+		class SimulatedConsole
+		{
+			private readonly string _input;
+			private int _currentIndex = 0;
+		
+			public SimulatedConsole(string input)
+			{
+				_input = input;
+			}
+		
+			public ConsoleKeyInfo ReadKey(bool intercept = false)
+			{
+				if (_currentIndex >= _input.Length)
+					throw new InvalidOperationException("No more keys to read.");
+		
+				char currentChar = _input[_currentIndex++];
+				return new ConsoleKeyInfo(currentChar, (ConsoleKey)currentChar, false, false, false);
+			}
+		}
+
+	    /*
+		//FUNZIONA ma quando termina l'audio nn viene mostrata l'istruzione successiva finchè l'utente non interviene*/
+		public static void PlayAndStopAudio(string audioFileName)
+        {
+			WaveOutEvent outputDevice = null;
+			AudioFileReader audioFile = null;
+			// Stop the current playback if running
+			outputDevice?.Stop();
+			outputDevice?.Dispose();
+			audioFile?.Dispose();
+			// Load and play the new file
+			audioFile = new AudioFileReader(audioFileName);
+			outputDevice = new WaveOutEvent();
+			outputDevice.Init(audioFile);
+			outputDevice.Play();
+			// Evento chiamato alla fine della riproduzione
+			outputDevice.PlaybackStopped += (sender, e) =>
+			{
+				playbackStopped = true;
+				//Console.WriteLine("Riproduzione audio terminata");
+			};
+			// Interrompe se viene premuto un tasto
+            while (outputDevice.PlaybackState == PlaybackState.Playing)
+            {
+                if (Console.KeyAvailable)
+                {
+					outputDevice?.Stop();
+					outputDevice?.Dispose();
+					outputDevice = null;
+					audioFile?.Dispose();
+					audioFile = null;
+                    break;
+                }
+                Thread.Sleep(100); // Riduce l'utilizzo della CPU
+            }
+        }
+		
 		
 		/* tutte prove per interrompere il suono ma non hanno funzionato
 		//funzioni per interrompere il suono
