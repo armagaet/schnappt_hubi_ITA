@@ -125,18 +125,20 @@ Buuhh, cosa stai facendo nella mia stanza?
 Ben fatto (o "bravo"), fai la guardia a Hubi, assicurati che non scappi!
 Resta con me, bravo, fai la guardia ad Hubi, l'infestazione non durerà a lungo
 
---Hubi (quando si è in 2 nella sua stanza) -- win.m4a
-oh no, ora siete in due a essere spug (???)
+--Hubi (quando si è in 2 nella sua stanza) -- win_hubi.m4a
+oh no, ora siete in due a essere spug (???) --> SPUK è "fantasma/spettro" in tedesco
 oh no, ora siete in due, lo spettro/l'incubo è finito, è una bella risata --> è stato divertente!
---narratore
+uuuh oh no, ora siete in due, sono finito, ahahah!! è stato divertente!
+--narratore -- win_narrator.m4a
 ben fatto, Hubi, ora sei sfortunato, gli animali coraggiosi ti hanno catturato, ora per te è finita!/ora è il momento di smetterla con le tue truffe/i tuoi "furtarelli"
---Hubi
+Ben fatto. Hubi, sei stato sfortunato, gli animali coraggiosi ti hanno catturato, ora è il momento di smetterla con i tuoi "furtarelli"
+--Hubi -- win_hubi2.m4a
 (Scherzo pratico,) okay, mi avete beccato... Diventiamo amici?
---narratore
+--narratore -- win_narrator2.m4a
 Congratulazioni, hai vinto, fantastico, è stato un sacco di lavoro.
 Congratulazioni, hai vinto, ce l'hai fatta, c'era mancato poco. 
 Hubi non farà più niente di stupido così in fretta.
-Hubi non farà niente di stupido tanto presto.
+Hubi non farà più niente di stupido tanto presto.
 
 --femmina
 Se vuoi giocare di nuovo, premi il pulsante di aiuto, e, se vuoi, seleziona un livello di difficoltà diverso.

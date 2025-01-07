@@ -6,13 +6,13 @@ DONE:
 - aggiunti i saluti degli animali in base alla casella su cui si trova il giocatore, per aiutare i giocatori a capire se la loro pedina si trova sulla casella corretta
 - consentita UNA SOLA ripetizione di azione in caso di movimento verso casella già nota, come nel gioco originale
 - interruzione dei suoni dopo aver premuto un tasto -- DA MIGLIORARE
+- aggiunto jingle della vittoria
 
 
 TO DO:
 - frase di sollecitazione dopo circa 6 mosse da quando si sveglia Hubi: 
 - frase di sollecitazione dopo circa 15" di inattività
 - voci degli animali in base all'animale
-- aggiungere jingle della vittoria
 
 */
 
@@ -138,7 +138,7 @@ namespace Hubi
 			string filePath3 = "sound\\selectplayer.m4a";
 			//string filePath4 = "sound\\intro.m4a";
 			string filePath40 = "sound\\intro_hubi0.m4a";
-			string filePath41 = "sound\\intro_hubi.m4a";
+			string filePath41 = "sound\\intro_hubi_caverna.m4a";
 			string filePath42 = "sound\\intro_narrator.m4a";
 			string filePath43 = "sound\\intro_find1magicdoor.m4a";
 			string filePath44 = "sound\\intro_find2magicdoor.m4a";
@@ -149,13 +149,19 @@ namespace Hubi
 			PlayAndStopAudio(filePath1);
 			//Simula l'input "q" per Console.ReadKey() per passare all'input successivo nel caso di audio terminato
 			var simulatedConsole = new SimulatedConsole("q");
+			//Questo blocco non va bene, speravo di riuscire a bypassare l'input da utente nel caso di termine del file audio, invece è meglio in ogni caso attendere un input da utente per passare allo step successivo
+			/*
 			if (playbackStopped) {
 				Console.WriteLine("Riproduzione audio terminata");
+				Console.WriteLine($"\nValore playbackStopped {playbackStopped}");
 				var key_avuoto = simulatedConsole.ReadKey(); //recepisco il recepimento dell'input simulato
 			}
 			else {
+				Console.WriteLine($"\nValore playbackStopped false? {playbackStopped}");
 				var key_avuoto = Console.ReadKey(true); //'true' evita che il tasto premuto venga mostrato sulla console
 			}
+			*/
+			var key_avuoto = Console.ReadKey(true); //'true' evita che il tasto premuto venga mostrato sulla console
 			
 			Console.Write("Select Level of the game 1-3: ");
 			//richiamo una funzione per la riproduzione audio interrompendola se viene premuto un tasto

@@ -340,9 +340,11 @@ namespace Hubi
                         //media.AddSound("win");
 						//lo scompongo
 						media.AddSound("win_hubi_caverna");
+						media.AddSound("win_jingle1");
 						media.AddSound("win_narrator");
 						media.AddSound("win_hubi2_caverna");
 						media.AddSound("win_narrator2");
+						media.AddSound("win_jingle2");
                         return true;
                     }
                     else if(playerWithHubi == 1)
