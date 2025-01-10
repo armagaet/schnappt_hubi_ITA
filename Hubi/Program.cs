@@ -7,12 +7,15 @@ DONE:
 - consentita UNA SOLA ripetizione di azione in caso di movimento verso casella già nota, come nel gioco originale
 - interruzione dei suoni dopo aver premuto un tasto -- DA MIGLIORARE
 - aggiunto jingle della vittoria
-
+- frase di sollecitazione dopo circa 15" di inattività
+- interrompo l'audio quando l'utente preme subito il pulsante di azione per velocizzare le azioni
+- in teoria nel gioco originale non mi sembra ci sia lo scandire delle ore che mancano a mezzanotte... Ad ogni modo qui lo lascio con la variabile clock, aggiungendo anche il suono di un pendolo
+- nel livello 3 pare che Hubi si muova più in fretta --> ok era già implementato grazie alla variabile hubi.Speed
+- frase di sollecitazione dopo circa 6 mosse da quando si sveglia Hubi: aggiunto il suono "tramonto_cattedrale"
 
 TO DO:
-- frase di sollecitazione dopo circa 6 mosse da quando si sveglia Hubi: 
-- frase di sollecitazione dopo circa 15" di inattività
 - voci degli animali in base all'animale
+- nel livello 3, le indicazioni su dove si trova Hubi sono più rare, cioè se al livello 1 in realtà puoi chiedere lo stesso consiglio ai gufi, nel livello 3 te lo fa chiedere proprio solo ad 1 animale a prescindere dal colore
 
 */
 

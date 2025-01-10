@@ -30,6 +30,9 @@ namespace Hubi
         private bool cheatBoard;
 
         private int clock;
+		
+		//creo una lista per salvare gli elementi audio da eventualmente ripetere successivamente con il pulsante R:
+		public List<string> lista_audio_da_ripetere;
 
         public Game(bool cheatBoard, int level, string playerstr)
         {
@@ -38,6 +41,7 @@ namespace Hubi
             this.players = new List<Player>();
             this.rounds = 0;
             media = new MediaPlayer();
+			lista_audio_da_ripetere = new List<string>();
 
             foreach(var c in playerstr)
             {
@@ -51,9 +55,9 @@ namespace Hubi
             if (level == 1)
                 clock = -1;
             else if (level == 2)
-                clock = 9;
+                clock = 7; //in origine era 9, ma nel gioco originale non mi sembra vi sia un countdown...
             else if (level == 3)
-                clock = 7;
+                clock = 5; //in origine era 7, ma nel gioco originale non mi sembra vi sia un countdown...
 
             hubi = new Hubi(6 - level);
         }
@@ -82,7 +86,14 @@ namespace Hubi
             {
                 if (PlayerTurn(player) == true)
                 {
-                    media.Play();
+                    //media.Play();
+					Console.WriteLine($"Round giocatore: {rounds}");
+					Console.WriteLine(string.Join(" - ", lista_audio_da_ripetere));
+					//non sembra entrare in questo blocco durante il turno del giocatore....
+					foreach (string audiofile in lista_audio_da_ripetere)
+					{
+						Program.PlayAndStopAudio(audiofile);
+					}
                     return true;
                 }
                 PrintMesh(BuildPrintMesh());
@@ -103,41 +114,52 @@ namespace Hubi
 			var Y_player = player.PosY;
 			var playerField = board.Single(f => f.x == X_player && f.y == Y_player);
             Console.WriteLine($"Posizione del giocatore: {playerField.FieldType}, {playerField.FieldColor}");
-			//media.Clear(); // Svuota la coda prima di aggiungere un nuovo suono
+			//media.Clear(); // Svuota la coda prima di aggiungere un nuovo suono - già commentato in origine
+			
+			//creo una lista per salvare gli elementi audio da eventualmente ripetere successivamente con il pulsante R:
+			//public List<string> lista_audio_da_ripetere;
+			//lista_audio_da_ripetere = new List<string>();
+			
 			switch(playerField.FieldType)
             {
                 case FieldType.Owl:
-                    media.AddSound("saluto_gufo");
-					//Program.PlayAndStopAudio("sound\\saluto_gufo.m4a");
+                    //media.AddSound("saluto_gufo");
+					lista_audio_da_ripetere.Add("sound\\saluto_gufo.m4a");
                     break;
                 case FieldType.Worm:
-                    media.AddSound("saluto_verme");
+                    //media.AddSound("saluto_verme");
+					lista_audio_da_ripetere.Add("sound\\saluto_verme.m4a");
                     break;
                 case FieldType.Frog:
-                    media.AddSound("saluto_rana");
+                    //media.AddSound("saluto_rana");
+					lista_audio_da_ripetere.Add("sound\\saluto_rana.m4a");
                     break;
                 case FieldType.Bat:
-                    media.AddSound("saluto_pipistrello");
+                    //media.AddSound("saluto_pipistrello");
+					lista_audio_da_ripetere.Add("sound\\saluto_pipistrello.m4a");
                     break;
             }
 
             switch(player.PlayerColor)
             {
                 case PlayerColor.Blue:
-                    media.AddSound("blue");
-					//Program.PlayAndStopAudio("sound\\blue.m4a");
+                    //media.AddSound("blue");
+					lista_audio_da_ripetere.Add("sound\\blue.m4a");
                     break;
                 case PlayerColor.Red:
-                    media.AddSound("red");
+                    //media.AddSound("red");
+					lista_audio_da_ripetere.Add("sound\\red.m4a");
                     break;
                 case PlayerColor.Yellow:
-                    media.AddSound("yellow");
+                    //media.AddSound("yellow");
+					lista_audio_da_ripetere.Add("sound\\yellow.m4a");
                     break;
                 case PlayerColor.Green:
-                    media.AddSound("green");
+                    //media.AddSound("green");
+					lista_audio_da_ripetere.Add("sound\\green.m4a");
                     break;
             }
-            //media.AddSound("turn");
+            //media.AddSound("turn"); //commento dall'inizio in quanto priva di senso
 
             var validCommand = false;
             var xDir = 0;
@@ -153,26 +175,83 @@ namespace Hubi
                 if (extraMove == true && count_extramove<1)
                 {
                     Console.WriteLine("Extra move");
-                    media.AddSound("extramove");
+                    //media.AddSound("extramove");
+					lista_audio_da_ripetere.Add("sound\\extramove.m4a");
                     PrintMesh(BuildPrintMesh());
                     extraMove = false;
 					count_extramove++;
                 }
 
-                media.AddSound("move");
-                media.Play();
-				//Program.PlayAndStopAudio("sound\\move.m4a");
+                //media.AddSound("move");
+                //media.Play();
+				lista_audio_da_ripetere.Add("sound\\move.m4a");
+				Console.WriteLine(string.Join(", ", lista_audio_da_ripetere));
+				foreach (string audiofile in lista_audio_da_ripetere)
+				{
+					Program.PlayAndStopAudio(audiofile);
+				}
                 Console.Write("Your Move (H=Help, R=Repeat) ? >");
+				
                 var command = Console.ReadKey().Key;
                 while(command == ConsoleKey.R)
                 {
-                    media.Play();
+                    //media.Play();
+					//ciclo dentro la lsta per far ripetere i comandi fino a qui
+					foreach (string audiofile in lista_audio_da_ripetere)
+					{
+						Program.PlayAndStopAudio(audiofile);
+					}
                     Console.Write("Your Move (H=Help, R=Repeat) ? >");
                     command = Console.ReadKey().Key;
                 }
-                media.Clear();
+                //media.Clear();
+				lista_audio_da_ripetere.Clear();
+				
+				/*
+				//provo a sollecitare l'utente dopo 20 secondi di inattività -- funziona ma si accavalla con gli altri file audio
+				// Crea un token per annullare il timer se l'utente risponde in tempo
+				var cts = new CancellationTokenSource();
+				// Avvia un task asincrono per sollecitare l'utente dopo 20 secondi
+				var reminderTask = Task.Run(async () =>
+				{
+					try
+					{
+						await Task.Delay(20000, cts.Token); // Attendi 20 secondi
+						if (!cts.Token.IsCancellationRequested)
+						{
+							Console.WriteLine("\nSei ancora lì? Scrivi qualcosa per continuare!");
+							switch(player.PlayerColor)
+							{
+								case PlayerColor.Blue:
+									//media.AddSound("blue");
+									Program.PlayAndStopAudio("sound\\blue.m4a");
+									break;
+								case PlayerColor.Red:
+									//media.AddSound("red");
+									Program.PlayAndStopAudio("sound\\red.m4a");
+									break;
+								case PlayerColor.Yellow:
+									//media.AddSound("yellow");
+									Program.PlayAndStopAudio("sound\\yellow.m4a");
+									break;
+								case PlayerColor.Green:
+									//media.AddSound("green");
+									Program.PlayAndStopAudio("sound\\green.m4a");
+									break;
+							}
+							//media.AddSound("sollecito_inattivita");
+							//media.Play();
+							Program.PlayAndStopAudio("sound\\sollecito_inattivita.m4a");
+						}
+					}
+					catch (TaskCanceledException)
+					{
+						// Il task è stato annullato, non fare nulla
+					}
+				});
+				*/
 
-                //                media.Stop();
+                //media.Stop(); //penso che questa riga fosse già commentata in origine
                 Console.WriteLine();
                 switch (command)
                 {
@@ -197,7 +276,8 @@ namespace Hubi
                         yDir = 0;
                         break;
                     default:
-                        media.AddSound("failmove1");
+                        //media.AddSound("failmove1");
+						lista_audio_da_ripetere.Add("sound\\failmove1.m4a");
                         Console.WriteLine("Invalid Command");
                         validCommand = false;
                         continue;                        
@@ -216,7 +296,8 @@ namespace Hubi
                 var wantedY = player.PosY + yDir;
                 if (wantedX < 0 || wantedX > 3 || wantedY < 0 || wantedY > 3)
                 {
-                    media.AddSound("failmove2");
+                    //media.AddSound("failmove2");
+					lista_audio_da_ripetere.Add("sound\\failmove2.m4a");
                     Console.WriteLine("Move not allowed.");
                     validCommand = false;
                     continue;
@@ -226,44 +307,54 @@ namespace Hubi
                 switch (wayVector.WallType)
                 {
                     case WallType.Open:
-                        media.AddSound("openwall");
-                        media.AddSound("pass");
+                        //media.AddSound("openwall");
+                        //media.AddSound("pass");
+						lista_audio_da_ripetere.Add("sound\\openwall.m4a");
+						lista_audio_da_ripetere.Add("sound\\pass.m4a");
 
                         Console.WriteLine("Open, can pass");
                         break;
                     case WallType.Full:
-                        media.AddSound("fullwall");
-                        media.AddSound("nopass");
+                        //media.AddSound("fullwall");
+                        //media.AddSound("nopass");
+						lista_audio_da_ripetere.Add("sound\\fullwall.m4a");
+						lista_audio_da_ripetere.Add("sound\\nopass.m4a");
                         Console.WriteLine("Wall, cannot pass");
                         xDir = 0;
                         yDir = 0;
                         break;
                     case WallType.Mouse:
-                        media.AddSound("mousewall");
+                        //media.AddSound("mousewall");
+						lista_audio_da_ripetere.Add("sound\\mousewall.m4a");
                         if (player.PlayerType == PlayerType.Mouse)
                         {
                             Console.WriteLine("Mouse wall, can pass");
-                            media.AddSound("pass");
+                            //media.AddSound("pass");
+							lista_audio_da_ripetere.Add("sound\\pass.m4a");
                         }
                         else
                         {
                             Console.WriteLine("Mouse wall, can not pass");
-                            media.AddSound("nopass");
+                            //media.AddSound("nopass");
+							lista_audio_da_ripetere.Add("sound\\nopass.m4a");
                             xDir = 0;
                             yDir = 0;
                         }
                         break;
                     case WallType.Rabbit:
-                        media.AddSound("rabbitwall");
+                        //media.AddSound("rabbitwall");
+						lista_audio_da_ripetere.Add("sound\\rabbitwall.m4a");
                         if (player.PlayerType == PlayerType.Rabbit)
                         {
                             Console.WriteLine("Rabbit wall, can pass");
-                            media.AddSound("pass");
+                            //media.AddSound("pass");
+							lista_audio_da_ripetere.Add("sound\\pass.m4a");
                         }
                         else
                         {
                             Console.WriteLine("Rabbit wall, can not pass");
-                            media.AddSound("nopass");
+                            //media.AddSound("nopass");
+							lista_audio_da_ripetere.Add("sound\\nopass.m4a");
                             xDir = 0;
                             yDir = 0;
                         }
@@ -274,20 +365,24 @@ namespace Hubi
 
                         if (magic1player != null && magic2player != null)
                         {
-                            media.AddSound("opendoor");
-                            media.AddSound("pass");
+                            //media.AddSound("opendoor");
+                            //media.AddSound("pass");
+							lista_audio_da_ripetere.Add("sound\\opendoor.m4a");
+							lista_audio_da_ripetere.Add("sound\\pass.m4a");
                             wayVector.WallType = WallType.MagicOpen;
                             Console.WriteLine("Magic Door is open, can pass");
                             var magicDoors = boardMesh.Where(v => v.WallType == WallType.MagicClosed);
                             if(magicDoors.Any())
                             {
                                 Console.WriteLine("Still closed magic doors ");
-                                media.AddSound("stillclosedmagicdoors");
+                                //media.AddSound("stillclosedmagicdoors");
+								lista_audio_da_ripetere.Add("sound\\stillclosedmagicdoors.m4a");
                             }
                             else
                             {
                                 Console.WriteLine("Hubi is awake ");
-                                media.AddSound("hubiawake_caverna");
+                                //media.AddSound("hubiawake_caverna");
+								lista_audio_da_ripetere.Add("sound\\hubiawake_caverna.m4a");
                                 AwakeHubi();
                                 PrintHelp(player.PosX, player.PosY, hubi.IsAwake);
                             }
@@ -298,8 +393,10 @@ namespace Hubi
                         }
                         else
                         {
-                            media.AddSound("closemagicwall");
-                            media.AddSound("nopass");
+                            //media.AddSound("closemagicwall");
+                            //media.AddSound("nopass");
+							lista_audio_da_ripetere.Add("sound\\closemagicwall.m4a");
+							lista_audio_da_ripetere.Add("sound\\nopass.m4a");
 
                             Console.WriteLine("Closed Magic Door, cannot pass");
                             xDir = 0;
@@ -307,9 +404,12 @@ namespace Hubi
                         }
                         break;
                     case WallType.MagicOpen:
-						media.AddSound("magicdoor_opening");
-                        media.AddSound("openmagicwall");
-                        media.AddSound("pass");
+						//media.AddSound("magicdoor_opening");
+                        //media.AddSound("openmagicwall");
+                        //media.AddSound("pass");
+						lista_audio_da_ripetere.Add("sound\\magicdoor_opening.m4a");
+						lista_audio_da_ripetere.Add("sound\\openmagicwall.m4a");
+						lista_audio_da_ripetere.Add("sound\\pass.m4a");
                         Console.WriteLine("Open Magic Door, can pass");
                         break;
                     default:
@@ -339,19 +439,27 @@ namespace Hubi
                         Console.WriteLine("You have won");
                         //media.AddSound("win");
 						//lo scompongo
-						media.AddSound("win_hubi_caverna");
-						media.AddSound("win_jingle1");
-						media.AddSound("win_narrator");
-						media.AddSound("win_hubi2_caverna");
-						media.AddSound("win_narrator2");
-						media.AddSound("win_jingle2");
+						//media.AddSound("win_hubi_caverna");
+						//media.AddSound("win_jingle1");
+						//media.AddSound("win_narrator");
+						//media.AddSound("win_hubi2_caverna");
+						//media.AddSound("win_narrator2");
+						//media.AddSound("win_jingle2");
+						lista_audio_da_ripetere.Add("sound\\win_hubi_caverna.m4a");
+						lista_audio_da_ripetere.Add("sound\\win_jingle1.m4a");
+						lista_audio_da_ripetere.Add("sound\\win_narrator.m4a");
+						lista_audio_da_ripetere.Add("sound\\win_hubi2_caverna.m4a");
+						lista_audio_da_ripetere.Add("sound\\win_narrator2.m4a");
+						lista_audio_da_ripetere.Add("sound\\win_jingle2.m4a");
                         return true;
                     }
                     else if(playerWithHubi == 1)
                     {
                         Console.WriteLine("Hubi is here");
-                        media.AddSound("visithubi_caverna");
-						media.AddSound("hubi_check");
+                        //media.AddSound("visithubi_caverna");
+						//media.AddSound("hubi_check");
+						lista_audio_da_ripetere.Add("sound\\visithubi_caverna.m4a");
+						lista_audio_da_ripetere.Add("sound\\hubi_check.m4a");
                         if(nexthubiMove == -1)
                             nexthubiMove = 0;
                     }
@@ -369,7 +477,8 @@ namespace Hubi
                 if (hubiMove)
                 {
                     Console.WriteLine("Hubi is moved");
-                    media.AddSound("hubimove_caverna");
+                    //media.AddSound("hubimove_caverna");
+					lista_audio_da_ripetere.Add("sound\\hubimove_caverna.m4a");
                     PrintHelp(player.PosX, player.PosY, hubi.IsAwake);
                     MoveHubi();
                     PrintMesh(BuildPrintMesh());
@@ -377,15 +486,27 @@ namespace Hubi
                 if(clock == 0)
                 {
                     Console.WriteLine("Clock is over, you lost");
-                    media.AddSound("lost");
+                    //media.AddSound("lost");
+					lista_audio_da_ripetere.Add("sound\\lost.m4a");
                     return true;
 
                 }
                 if (clock != -1 && (rounds +1) % 8 == 0)
                 {
                     Console.WriteLine($"Clock is {clock}");
-                    media.AddSound(clock.ToString());
+                    //media.AddSound(clock.ToString());
+					lista_audio_da_ripetere.Add("sound\\pendolo_cattedrale_cutted_fadeout.m4a");
+					string concatenatedString = "sound\\" + clock.ToString() + ".m4a";
+					lista_audio_da_ripetere.Add(concatenatedString);
                     clock--;
+                }
+				if (clock == -1 && (rounds +1) == 8) //aggiungo questa sollecitazione dopo 8 mosse. In realtà andrebbe messa dopo circa 6 mosse da quando Hubi si sveglia (mi pare)... La metto solo nel livello di difficoltà 1 per il momento
+                {
+                    Console.WriteLine($"Sono passati {rounds} round");
+                    //media.AddSound("tramonto_cattedrale");
+					lista_audio_da_ripetere.Add("sound\\pendolo_cattedrale_cutted_fadeout.m4a");
+					lista_audio_da_ripetere.Add("sound\\tramonto_cattedrale.m4a");
+                    //clock--;
                 }
 
             }
@@ -486,7 +607,8 @@ namespace Hubi
 				Console.WriteLine(field.hasGivenHint); //non viene gestito mi pare
                 if (field.hasGivenHint)
                 {
-                    media.AddSound("alreadyanimalhint");
+                    //media.AddSound("alreadyanimalhint");
+					lista_audio_da_ripetere.Add("sound\\alreadyanimalhint.m4a");
                     Console.WriteLine("Animal has already given a hint");
                     return false;
                 }
@@ -496,7 +618,8 @@ namespace Hubi
                 var c = magicDoors.Count();
                 if(c == 0)
                 {
-                    media.AddSound("failmove1");
+                    //media.AddSound("failmove1");
+					lista_audio_da_ripetere.Add("sound\\failmove1.m4a");
                     Console.WriteLine("No hint possible");
                     return false;
                 }
@@ -510,25 +633,41 @@ namespace Hubi
                     if(shift == 0)
                     {
                         Console.WriteLine($"The magic door is between {magic1.FieldColor},{magic1.FieldType} and {magic2.FieldColor},{magic2.FieldType}");
-                        media.AddSound("staywithme");
+                        /*media.AddSound("staywithme");
 						media.AddSound("magicbetween");
 						//inverto prima l'animale e poi il colore, per l'italiano
                         media.AddSound(magic1.FieldType.ToString().ToLower());
 						media.AddSound(magic1.FieldColor.ToString().ToLower());
                         media.AddSound("and");
 						media.AddSound(magic2.FieldType.ToString().ToLower());
-                        media.AddSound(magic2.FieldColor.ToString().ToLower());
+                        media.AddSound(magic2.FieldColor.ToString().ToLower());*/
+						//uso il metodo che interrompe l'audio quando viene premuto un pulsante d'azione
+						lista_audio_da_ripetere.Add("sound\\staywithme.m4a");
+						lista_audio_da_ripetere.Add("sound\\magicbetween.m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic1.FieldType.ToString().ToLower() + ".m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic1.FieldColor.ToString().ToLower() + ".m4a");
+						lista_audio_da_ripetere.Add("sound\\and.m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic2.FieldType.ToString().ToLower() + ".m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic2.FieldColor.ToString().ToLower() + ".m4a");
                     }
                     else
                     {
                         Console.WriteLine($"The magic door is between {magic2.FieldColor},{magic2.FieldType} and {magic1.FieldColor},{magic1.FieldType}");
-						media.AddSound("staywithme");
+						/*media.AddSound("staywithme");
                         media.AddSound("magicbetween");
                         media.AddSound(magic2.FieldType.ToString().ToLower());
 						media.AddSound(magic2.FieldColor.ToString().ToLower());
                         media.AddSound("and");
                         media.AddSound(magic1.FieldType.ToString().ToLower());
-						media.AddSound(magic1.FieldColor.ToString().ToLower());
+						media.AddSound(magic1.FieldColor.ToString().ToLower());*/
+						//uso il metodo che interrompe l'audio quando viene premuto un pulsante d'azione
+						lista_audio_da_ripetere.Add("sound\\staywithme.m4a");
+						lista_audio_da_ripetere.Add("sound\\magicbetween.m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic2.FieldType.ToString().ToLower() + ".m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic2.FieldColor.ToString().ToLower() + ".m4a");
+						lista_audio_da_ripetere.Add("sound\\and.m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic1.FieldType.ToString().ToLower() + ".m4a");
+						lista_audio_da_ripetere.Add("sound\\" + magic1.FieldColor.ToString().ToLower() + ".m4a");
                     }
                 }
                 else if (level == 2)
@@ -543,23 +682,36 @@ namespace Hubi
                     media.AddSound(magic.FieldColor.ToString().ToLower());
 					*/
 					Console.WriteLine($"The magic door is between {magic1.FieldColor},{magic1.FieldType} and {magic2.FieldColor},{magic2.FieldType}");
-                    media.AddSound("staywithme");
+                    /*media.AddSound("staywithme");
 					media.AddSound("magicbetween");
 					//inverto prima l'animale e poi il colore, per l'italiano
                     media.AddSound(magic1.FieldType.ToString().ToLower());
 					media.AddSound(magic1.FieldColor.ToString().ToLower());
                     media.AddSound("and");
 					media.AddSound(magic2.FieldType.ToString().ToLower());
-                    media.AddSound(magic2.FieldColor.ToString().ToLower());
+                    media.AddSound(magic2.FieldColor.ToString().ToLower());*/
+					//uso il metodo che interrompe l'audio quando viene premuto un pulsante d'azione
+					lista_audio_da_ripetere.Add("sound\\staywithme.m4a");
+					lista_audio_da_ripetere.Add("sound\\magicbetween.m4a");
+					lista_audio_da_ripetere.Add("sound\\" + magic1.FieldType.ToString().ToLower() + ".m4a");
+					lista_audio_da_ripetere.Add("sound\\" + magic1.FieldColor.ToString().ToLower() + ".m4a");
+					lista_audio_da_ripetere.Add("sound\\and.m4a");
+					lista_audio_da_ripetere.Add("sound\\" + magic2.FieldType.ToString().ToLower() + ".m4a");
+					lista_audio_da_ripetere.Add("sound\\" + magic2.FieldColor.ToString().ToLower() + ".m4a");
                 }
                 else if (level == 3)
                 {
+					//in realtà anche al livello 3 del gioco originale viene data la posizione della porta magica tra 2 animali, solo che le porte sono 3
                     Field magic = GetMagicFieldForHint(magic1, magic2, shift);
 
                     Console.WriteLine($"The magic door is next to {magic1.FieldType}");
-                    media.AddSound("staywithme");
+                    /*media.AddSound("staywithme");
 					media.AddSound("magicnext");
-                    media.AddSound(magic1.FieldType.ToString().ToLower());
+                    media.AddSound(magic1.FieldType.ToString().ToLower());*/
+					//uso il metodo che interrompe l'audio quando viene premuto un pulsante d'azione
+					lista_audio_da_ripetere.Add("sound\\staywithme.m4a");
+					lista_audio_da_ripetere.Add("sound\\magicnext.m4a");
+					lista_audio_da_ripetere.Add("sound\\" + magic1.FieldType.ToString().ToLower() + ".m4a");
                 }
 				//provo a gestire il fatto che si sia già dato un aiuto:
 				field.hasGivenHint = true;
